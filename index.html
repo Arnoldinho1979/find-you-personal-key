@@ -70,11 +70,6 @@
         "Ach Gott, vom Himmel sieh darein<br>BWV 2 (Leipzig 1724)": {
             scores: [3, 1, 2, 2, 2, 1, 2, 2, 3, 1, 2, 1],
             videoUrl: "https://www.youtube.com/embed/O9edOndqIZI?si=2n8iUro64I0Rd2rz"
-
-       
-
-
-            
         }
     };
 
@@ -106,11 +101,11 @@
     }
 
     function determineResult() {
-        let besttonart = null;
+        let bestTonart = null;
         let bestScore = -1;
 
-        for (let tonart in tonart) {
-            const { scores } = tonart[tonart];
+        for (let tonartName in tonart) {
+            const { scores } = tonart[tonartName];
             let score = 0;
 
             let minLength = Math.min(userResponses.length, scores.length);
@@ -122,16 +117,15 @@
 
             if (score > bestScore) {
                 bestScore = score;
-                besttonart = tonart;
+                bestTonart = tonartName; // Bestens passender Tonartname
             }
         }
 
-        // Fallback: Wenn keine exakte Übereinstimmung vorhanden ist, gebe das beste ähnliche Ergebnis zurück
-        if (bestScore === 0) {
-            return { Tonart: "BWV 147", videoUrl: tonarten["BWV 147"].videoUrl }; // Beispiel für Standard-Ersatz-Tonart
+        if (bestTonart === null) {
+            return { tonart: "BWV 147", videoUrl: tonart["BWV 147"].videoUrl }; // Standard-Tonart
         }
 
-        return { tonart: besttonart, videoUrl: tonart[besttonart].videoUrl };
+        return { tonart: bestTonart, videoUrl: tonart[bestTonart].videoUrl }; // Beste Tonart und URL
     }
 
     displayQuestion();
