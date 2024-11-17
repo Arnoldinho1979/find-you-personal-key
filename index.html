@@ -79,12 +79,12 @@
 
     function displayQuestion() {
     const questionElement = document.getElementById("question");
-    questionElement.style.opacity = 0;  // Opazität auf 0 setzen, um den Effekt zu starten
+    questionElement.style.opacity = 0;
     
     setTimeout(() => {
         questionElement.textContent = statements[currentQuestion];
-        questionElement.style.opacity = 1;  // Opazität auf 1 setzen, um den neuen Text sichtbar zu machen
-    }, 500);  // Der Timeout muss mit der Dauer der Übergangszeit (transition) übereinstimmen
+        questionElement.style.opacity = 1;
+    }, 500);
 }
     function answer(response) {
         userResponses.push(response);
