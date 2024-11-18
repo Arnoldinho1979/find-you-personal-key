@@ -240,14 +240,19 @@
         }
     }
 
-    function showResult() {
-        let result = determineResult();
-        document.getElementById("question").innerHTML = `
-            Am besten passt zu dir ... ...<br><br>${result.tonart}<br><br>
-            <iframe width="560" height="315" src="${result.videoUrl}" frameborder="0" allowfullscreen></iframe>
-        `;
-        document.querySelectorAll("button").forEach(btn => btn.style.display = "none");
-    }
+   function showResult() {
+    let result = determineResult();
+    const { tonart, videoUrl, description } = tonart[result.tonart];
+
+    document.getElementById("question").innerHTML = `
+        <h2>Am besten passt zu dir ...</h2>
+        <h1>${result.tonart}</h1>
+        <iframe width="560" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+        <p style="margin-top: 20px; font-size: 1em; line-height: 1.6; max-width: 800px;">${description}</p>
+    `;
+    document.querySelectorAll("button").forEach(btn => btn.style.display = "none");
+}
+
 
     function determineResult() {
         let bestTonart = null;
