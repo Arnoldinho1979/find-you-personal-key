@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TONART-O-MAT</title>
-       <style>
+    <style>
         body {
             font-family: "Times New Roman", serif;
             display: flex;
@@ -18,12 +18,12 @@
         h1 {
             text-align: center;
             font-size: 3em;
-            margin-bottom: 0px; /* Kleineren Abstand unter dem h1 */
+            margin-bottom: 0px;
         }
         h2 {
             text-align: center;
-            margin-top: 0px; /* Abstand oben beim h2 entfernen */
-            margin-bottom: 19px; /* Den Abstand nach unten kann man beibehalten oder anpassen */
+            margin-top: 0px;
+            margin-bottom: 19px;
             width: 60%;
             font-weight: normal;
         }
@@ -33,6 +33,24 @@
             text-align: center;
             opacity: 1;
             transition: opacity 0.5s ease;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Abstand zwischen den Buttons */
+        }
+        .button {
+            padding: 20px 40px; /* Mehr Innenabstand (größerer Button) */
+            font-size: 1.5em; /* Größere Schriftgröße */
+            width: 200px; /* Feste Breite für die Buttons */
+            background-color: #ff9a8b; /* Hintergrundfarbe */
+            border: none;
+            border-radius: 8px; /* Abgerundete Ecken */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #ff6f61; /* Dunklere Hintergrundfarbe beim Hover */
         }
     </style>
 </head>
